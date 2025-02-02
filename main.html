@@ -7,24 +7,62 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay">
-    </iframe>
-    
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID" frameborder="0" allow="autoplay"></iframe>
     <div class="container">
         <h1 class="question">Will you be my Valentine? ❤️</h1>
         <img src="your-image.jpg" alt="Cute Image" width="300">
         <br>
-        <button class="btn yes" onclick="location.href='yes.html'">Yes 💖</button>
-        <button class="btn no" onmouseover="moveButton()">No 💔</button>
+        <button class="btn yes" onclick="showPrompt()">Yes 💖</button>
+        <button class="btn no" onclick="handleNoClick()">No 💔</button>
     </div>
+    
     <script>
+        let noClickCount = 0;
+        let yesTexts = [
+            "Yes let's go", 
+            "You know u want to Emily", 
+            "if you keep clicking no I'll be sad", 
+            "Your Jellycat will be sad", 
+            "We're here to have fun Em"
+        ];
+        function handleNoClick() {
+            let noButton = document.querySelector('.no');
+            let yesButton = document.querySelector('.yes');
+            
+            let noTexts = [
+                "Are you sure?", 
+                "Come on, it will be fun no pressure", 
+                "I'll get you mint choco ice cream :D",
+                "pwetty please"
+            ];
+            
+            if (noClickCount < noTexts.length) {
+                noButton.innerText = noTexts[noClickCount];
+            } else {
+                moveButton();
+            }
+            
+            yesButton.style.fontSize = `${16 + (noClickCount * 5)}px`;
+            yesButton.innerText = yesTexts[noClickCount % yesTexts.length];
+            
+            noClickCount++;
+        }
+        
         function moveButton() {
             let button = document.querySelector('.no');
             let x = Math.random() * (window.innerWidth - 100);
             let y = Math.random() * (window.innerHeight - 50);
+            button.style.position = 'absolute';
             button.style.left = `${x}px`;
             button.style.top = `${y}px`;
+        }
+        
+        function showPrompt() {
+            alert("Great choice Em, Prof Angela is proud of u. Now kindly fill up some details below so everything will run smoothly *Don't worry I won't sell u off HAHAHA*");
+            let working = confirm("Are you working that day?");
+            let romanceLevel = prompt("On a scale of 1-10, with 1 being friendly and fun and 10 being very romantic it's concerning, give me the value.");
+            alert("Pick you up at 7pm and no that's not a question ");
+            location.href = 'yes.html';
         }
     </script>
 </body>
