@@ -115,7 +115,7 @@
                 moveButton();
             }
             
-            yesButton.style.fontSize = `${16 + (noClickCount * 8)}px`;
+            yesButton.style.fontSize = `${16 + (noClickCount * 6)}px`;
             yesButton.innerText = yesTexts[noClickCount % yesTexts.length];
             
             noClickCount++;
@@ -137,7 +137,7 @@
         setTimeout(() => {
             document.getElementById("analytics-section").style.display = "none";
             document.getElementById("valentine-section").style.display = "block";
-        }, 15000);
+        }, 8300);
     </script>
 </body>
 </html>
