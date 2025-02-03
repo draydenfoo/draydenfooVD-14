@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill in the Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>I'm glad u say yes! </h1>
+    <h2> Just a few quick questions before our date! 💖</h2> 
+    <form action="https://formspree.io/f/manqjvlz" method="POST">
+        <label>Are you working that day?</label>
+        <select name="working" required>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select>
+        <br><br>
+        
+        <label>If so, what time? </label>
+        <input type="text" name="working hour" id="working hour" value="" />
+        <br><br>
+        
+        <label>On a scale of 1-10, with 1 being friendly and fun and 10 being very romantic, pick ur poison </label>
+        <input type="number" name="romanceLevel" min="1" max="10" required>
+        <br><br>
+        
+        <label>Pick a color:</label>
+        <select name="color" required>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="pink">Blue</option>
+
+        </select>
+        <br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+
+
