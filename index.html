@@ -7,24 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1&loop=1&playlist=YOUR_VIDEO_ID" frameborder="0" allow="autoplay"></iframe>
-    <div class="container">
-        <h1 class="question">Will you be my Valentine? ❤️</h1>
-        <img src="your-image.jpg" alt="Cute Image" width="300">
+    <!-- Background Music -->
+    <audio id="background-music" loop autoplay>
+        <source src="https://raw.githubusercontent.com/yourusername/yourrepository/main/music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    
+    <div id="analytics-section" class="container">
+        <h1>Advanced Analytics Questions</h1>
+        <label for="q1">Q1: How old are you?</label><br>
+        <textarea id="q1" name="q1" rows="4" cols="50"></textarea><br><br>
+
+        <label for="q2">Q2: Are you employed?</label><br>
+        <textarea id="q2" name="q2" rows="4" cols="50"></textarea><br><br>
+
+        <label for="q3">Q3: what industry are you in?</label><br>
+        <textarea id="q3" name="q3" rows="4" cols="50"></textarea><br><br>
+
+        <label for="q4">Q4: How long have you been employed?</label><br>
+        <textarea id="q4" name="q4" rows="4" cols="50"></textarea><br><br>
+    </div>
+    
+    
+    <div id="valentine-section" class="container" style="display: none;">
+        <h1 class="question">Actually, I was joking haha! But I wanted to ask you if you're okay to be my valentines this Friday :) *I'm only asking you, hence i created this* ❤️</h1>
+        <img src="https://media.istockphoto.com/id/1446007877/photo/seal.jpg?s=612x612&w=0&k=20&c=m8eyMKfFIbdxPdsSaXeGUeKq-iWy4Yfx0VFoEANrWTE=" alt="Seal Image" width="300">
         <br>
-        <button class="btn yes" onclick="showPrompt()">Yes 💖</button>
+        <button class="btn yes" onclick="redirectToForm()">Yes 💖</button>
         <button class="btn no" onclick="handleNoClick()">No 💔</button>
+    </div>
+    
+    <div id="sad-section" class="container" style="display: none;">
+        <h1>awww we could have had so much fun eh 😿</h1>
+        <p>But either way, thanks for messing around with the form haha. Have a great day! (at least text me on your experience on this pls)</p>
+        <img src="https://i.imgur.com/mQXOdzY.jpeg" alt="Sad Cat" width="300">
     </div>
     
     <script>
         let noClickCount = 0;
         let yesTexts = [
             "Yes let's go", 
-            "You know u want to Emily", 
-            "if you keep clicking no I'll be sad", 
-            "Your Jellycat will be sad", 
+            "Stop clicking no I'll be sad",
+            "You know u want to Emily",
+            "Your Jellycat will be sad :(", 
             "We're here to have fun Em"
         ];
+        
         function handleNoClick() {
             let noButton = document.querySelector('.no');
             let yesButton = document.querySelector('.yes');
@@ -35,6 +64,12 @@
                 "I'll get you mint choco ice cream :D",
                 "pwetty please"
             ];
+            
+            if (noClickCount >= 10) {
+                document.getElementById("valentine-section").style.display = "none";
+                document.getElementById("sad-section").style.display = "block";
+                return;
+            }
             
             if (noClickCount < noTexts.length) {
                 noButton.innerText = noTexts[noClickCount];
@@ -57,13 +92,15 @@
             button.style.top = `${y}px`;
         }
         
-        function showPrompt() {
-            alert("Great choice Em, Prof Angela is proud of u. Now kindly fill up some details below so everything will run smoothly *Don't worry I won't sell u off HAHAHA*");
-            let working = confirm("Are you working that day?");
-            let romanceLevel = prompt("On a scale of 1-10, with 1 being friendly and fun and 10 being very romantic it's concerning, give me the value.");
-            alert("Pick you up at 7pm and no that's not a question ");
-            location.href = form.html';
+        function redirectToForm() {
+            location.href = 'response_form.html';
         }
+        
+        setTimeout(() => {
+            document.getElementById("analytics-section").style.display = "none";
+            document.getElementById("valentine-section").style.display = "block";
+        }, 15000);
     </script>
 </body>
 </html>
+
